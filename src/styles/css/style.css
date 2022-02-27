@@ -1,0 +1,415 @@
+body {
+  background-image: url("/src/styles/images/background.jpg");
+  background-size: cover; }
+  body ::-webkit-scrollbar {
+    width: 10px; }
+  body ::-webkit-scrollbar-track {
+    background: #252424; }
+  body ::-webkit-scrollbar-thumb {
+    background: #e9e8e8; }
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; }
+  .App #slider {
+    position: absolute;
+    top: 0;
+    left: 0; }
+    .App #slider .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px; }
+    .App #slider .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0; }
+    .App #slider .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../images/eng-flag.png");
+      background-size: cover;
+      -webkit-transition: 0.4s;
+      transition: 0.4s; }
+    .App #slider .slider:before {
+      position: absolute;
+      content: '';
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s; }
+    .App #slider input:checked + .slider {
+      background-image: url("../images/pl-flag.png");
+      background-size: cover; }
+    .App #slider input:focus + .slider {
+      box-shadow: 0 0 1px #2196f3; }
+    .App #slider input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px); }
+    .App #slider .slider.round {
+      border-radius: 34px; }
+    .App #slider .slider.round:before {
+      border-radius: 50%; }
+  .App #database-connect {
+    margin-top: 50px;
+    background-color: #252424;
+    padding: 20px;
+    color: #e9e8e8;
+    border-radius: 20px; }
+  .App #main {
+    height: 750px;
+    align-self: center;
+    background-color: rgba(48, 46, 46, 0.8);
+    width: 90vw;
+    border-radius: 20px; }
+    @media (max-width: 1024px) {
+      .App #main {
+        height: auto; } }
+    .App #main #empty-db {
+      color: #e9e8e8;
+      text-align: center; }
+    .App #main #charts {
+      width: 100%;
+      height: 90%; }
+      .App #main #charts #buttons {
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: 10px; }
+        .App #main #charts #buttons button {
+          width: 40%;
+          margin-top: 10px;
+          padding: 10px;
+          border: 0;
+          border-radius: 20px; }
+          @media (max-width: 1024px) {
+            .App #main #charts #buttons button {
+              width: 90%; } }
+        .App #main #charts #buttons #active-button {
+          background-color: #e9e8e8;
+          color: #252424; }
+        .App #main #charts #buttons #inactive-button {
+          background-color: #d7443c;
+          color: #e9e8e8; }
+      .App #main #charts #chart canvas {
+        padding: 10px !important;
+        min-height: 500px !important; }
+    .App #main #person-detail {
+      color: #e9e8e8; }
+      .App #main #person-detail h1 {
+        color: #d7443c;
+        margin: 10px; }
+      .App #main #person-detail h3 {
+        color: #d7443c; }
+      .App #main #person-detail strong {
+        margin-left: 10px;
+        margin-right: 5px;
+        color: #d7443c; }
+      .App #main #person-detail div {
+        display: flex; }
+        @media (max-width: 1024px) {
+          .App #main #person-detail div {
+            display: flex;
+            flex-direction: column; } }
+        .App #main #person-detail div #person-info {
+          flex-direction: column;
+          width: 60vw;
+          height: 75vh;
+          margin: 10px;
+          padding: 10px;
+          background-color: #252424;
+          border-radius: 20px; }
+          @media (max-width: 1024px) {
+            .App #main #person-detail div #person-info {
+              width: auto;
+              height: auto; } }
+          .App #main #person-detail div #person-info div {
+            padding: 5px; }
+        .App #main #person-detail div #person-right-bar {
+          width: 40vw;
+          margin: 10px;
+          padding: 10px;
+          flex-direction: column;
+          background-color: #252424;
+          border-radius: 20px; }
+          @media (max-width: 1024px) {
+            .App #main #person-detail div #person-right-bar {
+              width: auto;
+              height: auto; } }
+          .App #main #person-detail div #person-right-bar button {
+            padding: 10px;
+            margin: 5px;
+            color: #e9e8e8;
+            background-color: #d7443c;
+            border: 0;
+            border-radius: 20px; }
+            .App #main #person-detail div #person-right-bar button:hover {
+              background-color: #e9e8e8;
+              color: black; }
+          .App #main #person-detail div #person-right-bar div {
+            flex-direction: column; }
+            .App #main #person-detail div #person-right-bar div div {
+              padding: 5px;
+              flex-direction: row; }
+    .App #main #movie-info {
+      display: flex;
+      height: 75vh; }
+      @media (max-width: 1024px) {
+        .App #main #movie-info {
+          height: auto; } }
+      @media (max-width: 1024px) {
+        .App #main #movie-info {
+          flex-direction: column; } }
+      .App #main #movie-info h1 {
+        color: #d7443c; }
+      .App #main #movie-info .movie-details {
+        overflow-y: scroll;
+        width: 70vw;
+        height: 100%;
+        background-color: #252424;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        display: flex; }
+        @media (max-width: 1024px) {
+          .App #main #movie-info .movie-details {
+            width: 95%;
+            flex-direction: column; } }
+        @media (max-width: 600px) {
+          .App #main #movie-info .movie-details {
+            padding: 5px;
+            padding-top: 10px;
+            margin: auto;
+            margin-top: 10px; } }
+        .App #main #movie-info .movie-details .movie-description {
+          display: flex;
+          flex-direction: column; }
+        .App #main #movie-info .movie-details img {
+          width: 25vw; }
+          @media (max-width: 1024px) {
+            .App #main #movie-info .movie-details img {
+              width: 200px;
+              align-self: center; } }
+          @media (max-width: 600px) {
+            .App #main #movie-info .movie-details img {
+              width: 95%; } }
+        .App #main #movie-info .movie-details span {
+          margin: 5px 0 0 10px;
+          color: #e9e8e8; }
+          .App #main #movie-info .movie-details span strong {
+            color: #d7443c; }
+      .App #main #movie-info #movie-right-bar {
+        height: 100%;
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        color: #e9e8e8;
+        overflow-y: scroll;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #252424; }
+        @media (max-width: 1024px) {
+          .App #main #movie-info #movie-right-bar {
+            width: 95%; } }
+        @media (max-width: 600px) {
+          .App #main #movie-info #movie-right-bar {
+            padding: 5px;
+            padding-top: 10px;
+            margin: auto;
+            margin-top: 10px; } }
+        .App #main #movie-info #movie-right-bar select {
+          width: 80%; }
+        .App #main #movie-info #movie-right-bar button {
+          align-self: center;
+          color: #e9e8e8;
+          background-color: #d7443c;
+          width: 80%;
+          border: 0;
+          padding: 10px;
+          margin: 5px;
+          border-radius: 20px; }
+          .App #main #movie-info #movie-right-bar button:hover {
+            background-color: #e9e8e8;
+            color: #252424; }
+        .App #main #movie-info #movie-right-bar strong {
+          color: #d7443c; }
+    .App #main #forms {
+      background-color: #252424;
+      border-radius: 20px;
+      margin: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: center; }
+      .App #main #forms form {
+        display: flex;
+        flex-direction: column;
+        width: 50%; }
+        .App #main #forms form #errors div {
+          color: #a0a05e;
+          font-weight: bolder; }
+        .App #main #forms form strong {
+          margin-top: 10px;
+          color: #d7443c; }
+        .App #main #forms form button {
+          margin-top: 10px;
+          padding: 10px;
+          color: #e9e8e8;
+          background-color: #d7443c;
+          border: 0;
+          border-radius: 20px; }
+          .App #main #forms form button:hover {
+            color: #252424;
+            background-color: #e9e8e8; }
+    .App #main #list {
+      display: flex;
+      color: #e9e8e8;
+      height: 85%; }
+      @media (max-width: 1024px) {
+        .App #main #list {
+          flex-direction: column; } }
+      .App #main #list #tools {
+        height: 100%;
+        overflow-y: scroll;
+        padding: 0px 10px 15px 10px;
+        border-radius: 20px;
+        margin: 10px;
+        width: 30vw;
+        background-color: #252424; }
+        .App #main #list #tools #pages #active {
+          background-color: #c7c4c4;
+          color: black; }
+        .App #main #list #tools h1 {
+          color: #d7443c; }
+        @media (max-width: 1024px) {
+          .App #main #list #tools {
+            align-self: center;
+            width: 90%;
+            overflow-y: visible; } }
+        .App #main #list #tools #sort {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          width: 20vw;
+          padding: 5px; }
+          @media (max-width: 1024px) {
+            .App #main #list #tools #sort {
+              width: 99%; } }
+        .App #main #list #tools #filters {
+          width: 20vw;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 5px; }
+          @media (max-width: 1024px) {
+            .App #main #list #tools #filters {
+              width: 100%; }
+              .App #main #list #tools #filters #filter-checkbox {
+                display: inline-block;
+                margin: 10px; } }
+          @media (max-width: 1024px) {
+            .App #main #list #tools #filters input {
+              margin-right: 10px; } }
+          .App #main #list #tools #filters select {
+            width: 100%; }
+            @media (max-width: 1024px) {
+              .App #main #list #tools #filters select {
+                width: 99%; } }
+        .App #main #list #tools button {
+          margin-left: 5px;
+          margin-top: 10px;
+          padding: 10px;
+          background-color: #d7443c;
+          border: 0;
+          color: #e9e8e8;
+          border-radius: 10px; }
+          .App #main #list #tools button:hover {
+            background-color: white;
+            color: black; }
+      .App #main #list #people-list-main {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+        overflow-y: scroll; }
+        .App #main #list #people-list-main .person-container {
+          margin: 5px;
+          width: 95%;
+          background-color: #252424;
+          border-radius: 20px;
+          padding: 10px; }
+          @media (max-width: 1024px) {
+            .App #main #list #people-list-main .person-container {
+              width: 90%; } }
+          .App #main #list #people-list-main .person-container strong {
+            color: #d7443c;
+            padding: 2px; }
+      .App #main #list #movies-list-main {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 32vw);
+        grid-template-rows: repeat(2, 53%); }
+        @media (max-width: 1024px) {
+          .App #main #list #movies-list-main {
+            display: flex;
+            flex-direction: column; } }
+        .App #main #list #movies-list-main .movie-container {
+          padding: 5px;
+          background-color: #252424;
+          margin: 10px;
+          display: flex; }
+          @media (max-width: 600px) {
+            .App #main #list #movies-list-main .movie-container {
+              flex-direction: column; } }
+          @media (max-width: 1024px) {
+            .App #main #list #movies-list-main .movie-container {
+              width: 90%;
+              align-self: center; } }
+          @media (max-width: 1024px) {
+            .App #main #list #movies-list-main .movie-container img {
+              width: 150px;
+              height: 200px; } }
+          @media (max-width: 600px) {
+            .App #main #list #movies-list-main .movie-container img {
+              width: 90%;
+              height: auto;
+              align-self: center;
+              padding-bottom: 10px; } }
+          .App #main #list #movies-list-main .movie-container .movie-container-shortinfo {
+            display: flex;
+            flex-direction: column; }
+            .App #main #list #movies-list-main .movie-container .movie-container-shortinfo span {
+              margin: 0 0 5px 10px;
+              font-size: x-large; }
+              .App #main #list #movies-list-main .movie-container .movie-container-shortinfo span strong {
+                color: #d7443c; }
+    .App #main #dashboard {
+      background-color: #252424;
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 0;
+      border-radius: 20px 20px 0 0; }
+      @media (max-width: 600px) {
+        .App #main #dashboard {
+          flex-direction: column;
+          text-align: center; } }
+      .App #main #dashboard a {
+        text-decoration: none;
+        color: #e9e8e8;
+        text-transform: uppercase;
+        font-weight: 1000;
+        font-size: x-large; }
+        .App #main #dashboard a:hover {
+          color: #d7443c; }

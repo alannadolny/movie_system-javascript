@@ -1,0 +1,529 @@
+@mixin background-color {
+  background-color: rgb(37, 36, 36);
+}
+
+@mixin font-color-white {
+  color: rgb(233, 232, 232);
+}
+
+@mixin button-color-red {
+  background-color: rgb(215, 68, 60);
+}
+
+@mixin font-color-red {
+  color: rgb(215, 68, 60);
+}
+
+body {
+  background-image: url('/src/styles/images/background.jpg');
+  background-size: cover;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(37, 36, 36);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(233, 232, 232);
+  }
+}
+
+.App {
+  #slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('../images/eng-flag.png');
+      background-size: cover;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-image: url('../images/pl-flag.png');
+      background-size: cover;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196f3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  #database-connect {
+    margin-top: 50px;
+    @include background-color();
+    padding: 20px;
+    @include font-color-white();
+    border-radius: 20px;
+  }
+
+  #main {
+    height: 750px;
+    @media (max-width: 1024px) {
+      height: auto;
+    }
+    #empty-db {
+      @include font-color-white();
+      text-align: center;
+    }
+    #charts {
+      width: 100%;
+      height: 90%;
+      #buttons {
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+        button {
+          @media (max-width: 1024px) {
+            width: 90%;
+          }
+          width: 40%;
+          margin-top: 10px;
+          padding: 10px;
+          border: 0;
+          border-radius: 20px;
+        }
+        #active-button {
+          background-color: rgb(233, 232, 232);
+          color: rgb(37, 36, 36);
+        }
+        #inactive-button {
+          @include button-color-red();
+          @include font-color-white();
+        }
+      }
+      #chart {
+        canvas {
+          padding: 10px !important;
+          min-height: 500px !important;
+        }
+      }
+    }
+    #person-detail {
+      @include font-color-white();
+      h1 {
+        @include font-color-red();
+        margin: 10px;
+      }
+      h3 {
+        @include font-color-red();
+      }
+      strong {
+        margin-left: 10px;
+        margin-right: 5px;
+        @include font-color-red();
+      }
+      div {
+        @media (max-width: 1024px) {
+          display: flex;
+          flex-direction: column;
+        }
+        #person-info {
+          @media (max-width: 1024px) {
+            width: auto;
+            height: auto;
+          }
+          flex-direction: column;
+          width: 60vw;
+          height: 75vh;
+          margin: 10px;
+          padding: 10px;
+          @include background-color();
+          border-radius: 20px;
+          div {
+            padding: 5px;
+          }
+        }
+        #person-right-bar {
+          @media (max-width: 1024px) {
+            width: auto;
+            height: auto;
+          }
+          button {
+            padding: 10px;
+            margin: 5px;
+            @include font-color-white();
+            background-color: rgb(215, 68, 60);
+            border: 0;
+            border-radius: 20px;
+            &:hover {
+              background-color: rgb(233, 232, 232);
+              color: black;
+            }
+          }
+          width: 40vw;
+          div {
+            flex-direction: column;
+            div {
+              padding: 5px;
+              flex-direction: row;
+            }
+          }
+          margin: 10px;
+          padding: 10px;
+          flex-direction: column;
+          @include background-color();
+          border-radius: 20px;
+        }
+        display: flex;
+      }
+    }
+    #movie-info {
+      display: flex;
+      height: 75vh;
+      @media (max-width: 1024px) {
+        height: auto;
+      }
+      @media (max-width: 1024px) {
+        flex-direction: column;
+      }
+      h1 {
+        @include font-color-red();
+      }
+      .movie-details {
+        overflow-y: scroll;
+        width: 70vw;
+        @media (max-width: 1024px) {
+          width: 95%;
+          flex-direction: column;
+        }
+        @media (max-width: 600px) {
+          padding: 5px;
+          padding-top: 10px;
+          margin: auto;
+          margin-top: 10px;
+        }
+        height: 100%;
+        @include background-color();
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        .movie-description {
+          display: flex;
+          flex-direction: column;
+        }
+        img {
+          @media (max-width: 1024px) {
+            width: 200px;
+            align-self: center;
+          }
+          @media (max-width: 600px) {
+            width: 95%;
+          }
+          width: 25vw;
+        }
+        span {
+          margin: 5px 0 0 10px;
+          @include font-color-white();
+          strong {
+            @include font-color-red();
+          }
+        }
+      }
+      #movie-right-bar {
+        height: 100%;
+        @media (max-width: 1024px) {
+          width: 95%;
+        }
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        @include font-color-white();
+        @media (max-width: 600px) {
+          padding: 5px;
+          padding-top: 10px;
+          margin: auto;
+          margin-top: 10px;
+        }
+        select {
+          width: 80%;
+        }
+        button {
+          align-self: center;
+          @include font-color-white();
+          @include button-color-red();
+          width: 80%;
+          border: 0;
+          padding: 10px;
+          margin: 5px;
+          border-radius: 20px;
+          &:hover {
+            background-color: rgb(233, 232, 232);
+            color: rgb(37, 36, 36);
+          }
+        }
+        strong {
+          @include font-color-red();
+        }
+        overflow-y: scroll;
+        border-radius: 20px;
+        margin: 10px;
+        padding: 10px;
+        @include background-color();
+      }
+    }
+    #forms {
+      @include background-color();
+      border-radius: 20px;
+      margin: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      form {
+        #errors {
+          div {
+            color: rgb(160, 160, 94);
+            font-weight: bolder;
+          }
+        }
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        strong {
+          margin-top: 10px;
+          @include font-color-red();
+        }
+        button {
+          margin-top: 10px;
+          padding: 10px;
+          @include font-color-white();
+          @include button-color-red();
+          border: 0;
+          border-radius: 20px;
+          &:hover {
+            color: rgb(37, 36, 36);
+            background-color: rgb(233, 232, 232);
+          }
+        }
+      }
+    }
+    #list {
+      display: flex;
+      @media (max-width: 1024px) {
+        flex-direction: column;
+      }
+      @include font-color-white();
+      height: 85%;
+      #tools {
+        #pages {
+          #active {
+            background-color: rgb(199, 196, 196);
+            color: black;
+          }
+        }
+        height: 100%;
+        overflow-y: scroll;
+        h1 {
+          @include font-color-red();
+        }
+        padding: 0px 10px 15px 10px;
+        border-radius: 20px;
+        margin: 10px;
+        width: 30vw;
+        @media (max-width: 1024px) {
+          align-self: center;
+          width: 90%;
+          overflow-y: visible;
+        }
+        @include background-color();
+        #sort {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          width: 20vw;
+          padding: 5px;
+          @media (max-width: 1024px) {
+            width: 99%;
+          }
+        }
+        #filters {
+          @media (max-width: 1024px) {
+            width: 100%;
+            #filter-checkbox {
+              display: inline-block;
+              margin: 10px;
+            }
+          }
+          input {
+            @media (max-width: 1024px) {
+              margin-right: 10px;
+            }
+          }
+
+          select {
+            width: 100%;
+            @media (max-width: 1024px) {
+              width: 99%;
+            }
+          }
+          width: 20vw;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 5px;
+        }
+        button {
+          margin-left: 5px;
+          margin-top: 10px;
+          padding: 10px;
+          @include button-color-red();
+          border: 0;
+          @include font-color-white();
+          border-radius: 10px;
+          &:hover {
+            background-color: white;
+            color: black;
+          }
+        }
+      }
+      #people-list-main {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+        overflow-y: scroll;
+
+        .person-container {
+          @media (max-width: 1024px) {
+            width: 90%;
+          }
+          margin: 5px;
+          width: 95%;
+          @include background-color();
+          border-radius: 20px;
+          padding: 10px;
+          strong {
+            @include font-color-red();
+            padding: 2px;
+          }
+        }
+      }
+      #movies-list-main {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 32vw);
+        grid-template-rows: repeat(2, 53%);
+        @media (max-width: 1024px) {
+          display: flex;
+          flex-direction: column;
+        }
+        .movie-container {
+          @media (max-width: 600px) {
+            flex-direction: column;
+          }
+          @media (max-width: 1024px) {
+            width: 90%;
+            align-self: center;
+          }
+          img {
+            @media (max-width: 1024px) {
+              width: 150px;
+              height: 200px;
+            }
+            @media (max-width: 600px) {
+              width: 90%;
+              height: auto;
+              align-self: center;
+              padding-bottom: 10px;
+            }
+          }
+          padding: 5px;
+          @include background-color();
+          margin: 10px;
+          display: flex;
+          .movie-container-shortinfo {
+            display: flex;
+            flex-direction: column;
+            span {
+              margin: 0 0 5px 10px;
+              font-size: x-large;
+              strong {
+                @include font-color-red();
+              }
+            }
+          }
+        }
+      }
+    }
+    #dashboard {
+      @include background-color();
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 0;
+      border-radius: 20px 20px 0 0;
+      @media (max-width: 600px) {
+        flex-direction: column;
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+        color: rgb(233, 232, 232);
+        text-transform: uppercase;
+        font-weight: 1000;
+        font-size: x-large;
+        &:hover {
+          @include font-color-red();
+        }
+      }
+    }
+    align-self: center;
+    background-color: rgba(48, 46, 46, 0.8);
+    width: 90vw;
+    border-radius: 20px;
+  }
+}
